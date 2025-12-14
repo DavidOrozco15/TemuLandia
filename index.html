@@ -14,11 +14,11 @@
             </header>
             <nav>
                 <ul class="menu">
-                    <li><button class="boton-menu boton-categoria active">Todos los Productos</button></li>
-                    <li><button class="boton-menu boton-categoria">Abrigos</button></li>
-                    <li><button class="boton-menu boton-categoria">Camisetas</button></li>
-                    <li><button class="boton-menu boton-categoria">Pantalones</button></li>
-                    <li><a class="boton-menu boton-carrito" href="./carrito.html">Carrito <span class="numerito">0</span></a></li>
+                    <li><button id="todos" class="boton-menu boton-categoria active">Todos los Productos</button></li>
+                    <li><button id="abrigos" class="boton-menu boton-categoria">Abrigos</button></li>
+                    <li><button id="camisetas" class="boton-menu boton-categoria">Camisetas</button></li>
+                    <li><button id="pantalones" class="boton-menu boton-categoria">Pantalones</button></li>
+                    <li><a class="boton-menu boton-carrito" href="./carrito.html">Carrito <span id="numerito" class="numerito">0</span></a></li>
                 </ul>
             </nav>
             <footer>
@@ -26,42 +26,12 @@
             </footer>
         </aside>
         <main>
-            <h2 class="titulo-principal">Todos los Productos</h2>
-            <div class="contenedor-productos">
-                <div class="producto">
-                    <img class="producto-imagen" src="" alt="producto">
-                    <div class="producto-detalles">
-                        <h3 class="producto-titulo">Ropa 01</h3>
-                        <p class="producto-precio">$1000</p>
-                        <button class="producto-agregar">Agregar</button>
-                    </div>
-                </div>
-                <div class="producto">
-                    <img class="producto-imagen" src="" alt="producto">
-                    <div class="producto-detalles">
-                        <h3 class="producto-titulo">Ropa 01</h3>
-                        <p class="producto-precio">$1000</p>
-                        <button class="producto-agregar">Agregar</button>
-                    </div>
-                </div>
-                <div class="producto">
-                    <img class="producto-imagen" src="" alt="producto">
-                    <div class="producto-detalles">
-                        <h3 class="producto-titulo">Ropa 01</h3>
-                        <p class="producto-precio">$1000</p>
-                        <button class="producto-agregar">Agregar</button>
-                    </div>
-                </div>
-                <div class="producto">
-                    <img class="producto-imagen" src="" alt="producto">
-                    <div class="producto-detalles">
-                        <h3 class="producto-titulo">Ropa 01</h3>
-                        <p class="producto-precio">$1000</p>
-                        <button class="producto-agregar">Agregar</button>
-                    </div>
-                </div>
+            <h2 class="titulo-principal" id="titulo-principal">Todos los Productos</h2>
+            <div id="contenedor-productos" class="contenedor-productos">
+                
             </div>
         </main>
     </div>
+    <script src="./js/main.js"></script>
 </body>
 </html>
