@@ -41,6 +41,7 @@ aside{
     font-size: 1rem;
     cursor: pointer;
     display: flex;
+    align-items: center;
     gap: 1rem;
     font-weight: 600;
     padding: 1rem;
@@ -58,6 +59,18 @@ aside{
 
 .boton-carrito{
     margin-top: 2rem;
+}
+
+.numerito{
+    background-color: white;
+    color: rebeccapurple;
+    padding: .15rem .25rem;
+    border-radius: .25rem;
+}
+
+.boton-carrito.active .numerito{
+    background-color: rebeccapurple;
+    color: white;
 }
 
 .texto-footer{
@@ -122,4 +135,95 @@ main{
 .producto-agregar:hover{
     background-color: aliceblue;
     color: black;
+}
+
+/* Carrito Vacio */
+.contenedor-carrito{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.carrito-vacio, .carrito-comprado{
+    color: rebeccapurple;
+}
+
+.carrito-productos{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.carrito-producto{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: gray;
+    color: rebeccapurple;
+    padding: .5rem;
+    padding-right: 1.5rem;
+    border-radius: 1rem;
+}
+
+.carrito-producto-imagen{
+    width: 4rem;
+    border-radius: 1rem;
+}
+
+.carrito-producto small{
+    font-size: .75rem;
+}
+
+.carrito-producto-eliminar{
+    border: 0;
+    background-color: transparent;
+    color: red;
+    cursor: pointer;
+}
+
+.carrito-acciones{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.carrito-aciones-vaciar{
+    border: 0;
+    background-color: gray;
+    padding: 1rem;
+    border-radius: 1rem;
+    color: rebeccapurple;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.carrito-acciones-derecha{
+    display: flex;
+}
+
+.carrito-acciones-total{
+    display: flex;
+    background-color: gray;
+    padding: 1rem;
+    color: rebeccapurple;
+    text-transform: uppercase;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    gap: 1rem;
+}
+
+.carrito-acciones-comprar{
+    border: 0;
+    background-color: rebeccapurple;
+    padding: 1rem;
+    border-radius: 1rem;
+    color: gray;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.oculto{
+    display: none;
 }
