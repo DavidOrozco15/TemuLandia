@@ -196,11 +196,11 @@ function cargarProductos(productosElegidos) {
     contenedorProductos.innerHTML = "";
 
     productosElegidos.forEach(producto => {
-
+        /*${producto.imagen}*/
         const div = document.createElement("div");
         div.classList.add("producto");
         div.innerHTML = `
-            <img class="producto-imagen" src="${producto.imagen}" alt="${producto.titulo}">
+            <img class="producto-imagen" src="./img/camisa.jpeg" alt="${producto.titulo}"> //  
             <div class="producto-detalles">
                 <h3 class="producto-titulo">${producto.titulo}</h3>
                 <p class="producto-precio">$${producto.precio}</p>
@@ -247,7 +247,18 @@ function actualizarBotonesAgregar(){
     });
 }
 
-const productosEnCarrito = [];
+let productosEnCarrito;
+
+let productosEnCarritoLS = localStorage.getItem("productos-en-carrito");
+
+
+if(productosEnCarritoLS){
+    productosEnCarrito = localStorage.getItem("prodcutos-en-carrito");
+    actualizarNumerito();
+}else{
+    productosEnCarrito = [];
+};
+
 
 function agregarAlCarrito(e){
 
