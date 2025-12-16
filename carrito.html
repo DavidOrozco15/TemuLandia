@@ -8,18 +8,27 @@
 </head>
 <body>
     <div class="wrapper">
+        <header class="header-mobile">
+            <h1 class="logo"></h1>
+            <button class="open-menu" id="open-menu">
+
+            </button>
+        </header>
         <aside>
+            <button class="close-menu" id="close-menu">
+
+            </button>
             <header>
                 <h1 class="logo">TemuLandia</h1>
             </header>
             <nav>
                 <ul>
-                    <li><a class="boton-menu boton-volver" href="./index.html">Seguir Comprando <span class=""numerito>0</span></a></li>
-                    <li><a class="boton-menu boton-carrito active" href="./carrito.html">Carrito <span class=""numerito>0</span></a></li>
+                    <li><a class="boton-menu boton-volver" href="./index.html">Seguir Comprando</a></li>
+                    <li><a class="boton-menu boton-carrito active" href="./carrito.html">Carrito</a></li>
                 </ul>
             </nav>
             <footer>
-                <p class="texto-footer">Copyright Dyonix</p>
+                <p class="texto-footer">© 2025 Dyonix</p>
             </footer>
         </aside>
         <main>
@@ -31,7 +40,7 @@
                 </div>
                 <div id="carrito-acciones" class="carrito-acciones disabled">
                     <div class="carrito-acciones-izquierda">
-                        <button id="carrito-aciones-vaciar" class="carrito-acciones-vaciar">Vaciar Carrito</button>
+                        <button id="carrito-acciones-vaciar" class="carrito-acciones-vaciar">Vaciar carrito</button>
                     </div>
                     <div class="carrito-acciones-derecha">
                         <div class="carrito-acciones-total">
@@ -45,5 +54,8 @@
             </div>
         </main>
     </div>
+
+    <script src="./js/carrito.js"></script>
+    <script src="./js/menu.js"></script>
 </body>
 </html>
