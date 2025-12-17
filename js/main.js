@@ -35,6 +35,31 @@ const botonesCategorias = document.querySelectorAll(".boton-categoria");
 const tituloPrincipal = document.querySelector("#titulo-principal");
 let botonesAgregar = document.querySelectorAll(".producto-agregar");
 const numerito = document.querySelector("#numerito");
+const buscador = document.querySelector("#buscador");
+
+if (buscador) {
+    buscador.addEventListener("input", filtrarProductos);
+}
+
+function filtrarProductos() {
+    const textoBusqueda = buscador.value.toLowerCase().trim();
+    let productosFiltrados = window.productos;
+
+    if (textoBusqueda) {
+        productosFiltrados = productosFiltrados.filter(producto => 
+            producto.titulo.toLowerCase().includes(textoBusqueda)
+        );
+    }
+
+    const categoriaActiva = document.querySelector(".boton-categoria.active");
+    if (categoriaActiva && categoriaActiva.id !== "todos") {
+        productosFiltrados = productosFiltrados.filter(producto => 
+            producto.categoria.id === categoriaActiva.id
+        );
+    }
+
+    cargarProductos(productosFiltrados);
+}
 
 function cargarProductos(productosElegidos) {
 
