@@ -11,5 +11,5 @@ closeMenu.addEventListener("click", ()=>{
 })
 
 botonesCategorias.forEach(boton => boton.addEventListener("click", ()=>{
-    aside.classList.remove("aside-visble");
+    aside.classList.remove("aside-visible");
 }))

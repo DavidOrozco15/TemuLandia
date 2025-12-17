@@ -5,33 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TemuLandia</title>
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="wrapper">
         <header class="header-mobile">
             <h1 class="logo"></h1>
             <button class="open-menu" id="open-menu">
-
+                <img src="./img/barra-de-menus.png" alt="Eliminar producto" width="20" height="20">
             </button>
         </header>
         <aside>
             <button class="close-menu" id="close-menu">
-
+                <img src="./img/cancelar.png" alt="Eliminar producto" width="20" height="20">
             </button>
             <header>
                 <h1 class="logo">TemuLandia</h1>
             </header>
             <nav>
                 <ul class="menu">
+                    <input type="text" id="buscador" placeholder="Buscar productos..." class="buscador-input">
                     <li><button id="todos" class="boton-menu boton-categoria active">Todos los Productos</button></li>
-                    <li><button id="abrigos" class="boton-menu boton-categoria">Abrigos</button></li>
-                    <li><button id="camisetas" class="boton-menu boton-categoria">Camisetas</button></li>
-                    <li><button id="pantalones" class="boton-menu boton-categoria">Pantalones</button></li>
+                    <li><button id="electronics" class="boton-menu boton-categoria">Electrónica</button></li>
+                    <li><button id="jewelery" class="boton-menu boton-categoria">Joyería</button></li>
+                    <li><button id="women-s-clothing" class="boton-menu boton-categoria">Ropa de Mujer</button></li>
+                    <li><button id="men-s-clothing" class="boton-menu boton-categoria">Ropa de Hombre</button></li>
                     <li><a class="boton-menu boton-carrito" href="./carrito.html">Carrito <span id="numerito" class="numerito">0</span></a></li>
                 </ul>
             </nav>
             <footer>
-                <p class="texto-footer">Copyright Dyonix</p>
+                <p class="texto-footer">© 2025 Dyonix</p>
             </footer>
         </aside>
         <main>

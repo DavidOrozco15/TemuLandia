@@ -1,195 +1,65 @@
 // PRODUCTOS
-const productos = [
-    // Abrigos
-    {
-        id: "abrigo-01",
-        titulo: "Abrigo 01",
-        imagen: "./img/abrigos/01.jpg",
-        categoria: {
-            nombre: "Abrigos",
-            id: "abrigos"
-        },
-        precio: 1000
-    },
-    {
-        id: "abrigo-02",
-        titulo: "Abrigo 02",
-        imagen: "./img/abrigos/02.jpg",
-        categoria: {
-            nombre: "Abrigos",
-            id: "abrigos"
-        },
-        precio: 1000
-    },
-    {
-        id: "abrigo-03",
-        titulo: "Abrigo 03",
-        imagen: "./img/abrigos/03.jpg",
-        categoria: {
-            nombre: "Abrigos",
-            id: "abrigos"
-        },
-        precio: 1000
-    },
-    {
-        id: "abrigo-04",
-        titulo: "Abrigo 04",
-        imagen: "./img/abrigos/04.jpg",
-        categoria: {
-            nombre: "Abrigos",
-            id: "abrigos"
-        },
-        precio: 1000
-    },
-    {
-        id: "abrigo-05",
-        titulo: "Abrigo 05",
-        imagen: "./img/abrigos/05.jpg",
-        categoria: {
-            nombre: "Abrigos",
-            id: "abrigos"
-        },
-        precio: 1000
-    },
-    // Camisetas
-    {
-        id: "camiseta-01",
-        titulo: "Camiseta 01",
-        imagen: "./img/camisetas/01.jpg",
-        categoria: {
-            nombre: "Camisetas",
-            id: "camisetas"
-        },
-        precio: 1000
-    },
-    {
-        id: "camiseta-02",
-        titulo: "Camiseta 02",
-        imagen: "./img/camisetas/02.jpg",
-        categoria: {
-            nombre: "Camisetas",
-            id: "camisetas"
-        },
-        precio: 1000
-    },
-    {
-        id: "camiseta-03",
-        titulo: "Camiseta 03",
-        imagen: "./img/camisetas/03.jpg",
-        categoria: {
-            nombre: "Camisetas",
-            id: "camisetas"
-        },
-        precio: 1000
-    },
-    {
-        id: "camiseta-04",
-        titulo: "Camiseta 04",
-        imagen: "./img/camisetas/04.jpg",
-        categoria: {
-            nombre: "Camisetas",
-            id: "camisetas"
-        },
-        precio: 1000
-    },
-    {
-        id: "camiseta-05",
-        titulo: "Camiseta 05",
-        imagen: "./img/camisetas/05.jpg",
-        categoria: {
-            nombre: "Camisetas",
-            id: "camisetas"
-        },
-        precio: 1000
-    },
-    {
-        id: "camiseta-06",
-        titulo: "Camiseta 06",
-        imagen: "./img/camisetas/06.jpg",
-        categoria: {
-            nombre: "Camisetas",
-            id: "camisetas"
-        },
-        precio: 1000
-    },
-    {
-        id: "camiseta-07",
-        titulo: "Camiseta 07",
-        imagen: "./img/camisetas/07.jpg",
-        categoria: {
-            nombre: "Camisetas",
-            id: "camisetas"
-        },
-        precio: 1000
-    },
-    {
-        id: "camiseta-08",
-        titulo: "Camiseta 08",
-        imagen: "./img/camisetas/08.jpg",
-        categoria: {
-            nombre: "Camisetas",
-            id: "camisetas"
-        },
-        precio: 1000
-    },
-    // Pantalones
-    {
-        id: "pantalon-01",
-        titulo: "Pantalón 01",
-        imagen: "./img/pantalones/01.jpg",
-        categoria: {
-            nombre: "Pantalones",
-            id: "pantalones"
-        },
-        precio: 1000
-    },
-    {
-        id: "pantalon-02",
-        titulo: "Pantalón 02",
-        imagen: "./img/pantalones/02.jpg",
-        categoria: {
-            nombre: "Pantalones",
-            id: "pantalones"
-        },
-        precio: 1000
-    },
-    {
-        id: "pantalon-03",
-        titulo: "Pantalón 03",
-        imagen: "./img/pantalones/03.jpg",
-        categoria: {
-            nombre: "Pantalones",
-            id: "pantalones"
-        },
-        precio: 1000
-    },
-    {
-        id: "pantalon-04",
-        titulo: "Pantalón 04",
-        imagen: "./img/pantalones/04.jpg",
-        categoria: {
-            nombre: "Pantalones",
-            id: "pantalones"
-        },
-        precio: 1000
-    },
-    {
-        id: "pantalon-05",
-        titulo: "Pantalón 05",
-        imagen: "./img/pantalones/05.jpg",
-        categoria: {
-            nombre: "Pantalones",
-            id: "pantalones"
-        },
-        precio: 1000
+async function obtenerProductos() {
+    try {
+        const respuesta = await fetch("https://fakestoreapi.com/products");
+        const productosAPI = await respuesta.json();
+
+
+        // Transformar los datos de la API para que coincidan con el formato esperado
+        const productosTransformados = productosAPI.map(producto => ({
+            id: `producto-${producto.id}`,
+            titulo: producto.title,
+            imagen: producto.image,
+            categoria: {
+                nombre: producto.category,
+                id: producto.category.toLowerCase().replace(/['\s]+/g, "-").replace(/-+/g, "-").replace(/^-|-$/g, "") // Convertir categoría a un formato de ID
+            },
+            precio: producto.price
+        }));
+
+        // Cargar los productos en la página
+        cargarProductos(productosTransformados);
+
+        // Guardar los productos transformados en una variable global si es necesario
+        window.productos = productosTransformados;
+
+    } catch (error) {
+        console.error("Error al obtener los productos de la API:", error);
     }
-];
+}
+
+obtenerProductos();
 
 const contenedorProductos = document.querySelector("#contenedor-productos");
 const botonesCategorias = document.querySelectorAll(".boton-categoria");
 const tituloPrincipal = document.querySelector("#titulo-principal");
 let botonesAgregar = document.querySelectorAll(".producto-agregar");
 const numerito = document.querySelector("#numerito");
+const buscador = document.querySelector("#buscador");
+
+if (buscador) {
+    buscador.addEventListener("input", filtrarProductos);
+}
+
+function filtrarProductos() {
+    const textoBusqueda = buscador.value.toLowerCase().trim();
+    let productosFiltrados = window.productos;
+
+    if (textoBusqueda) {
+        productosFiltrados = productosFiltrados.filter(producto => 
+            producto.titulo.toLowerCase().includes(textoBusqueda)
+        );
+    }
+
+    const categoriaActiva = document.querySelector(".boton-categoria.active");
+    if (categoriaActiva && categoriaActiva.id !== "todos") {
+        productosFiltrados = productosFiltrados.filter(producto => 
+            producto.categoria.id === categoriaActiva.id
+        );
+    }
+
+    cargarProductos(productosFiltrados);
+}
 
 function cargarProductos(productosElegidos) {
 
@@ -213,26 +83,25 @@ function cargarProductos(productosElegidos) {
 
     actualizarBotonesAgregar();
 }
-
-cargarProductos(productos); /*se puede boorar por si acaso*/
+/*se puede boorar por si acaso*/
 
 botonesCategorias.forEach(boton => {
     boton.addEventListener("click", (e) => {
-
+        // Remover la clase "active" de todos los botones y agregarla al botón seleccionado
         botonesCategorias.forEach(boton => boton.classList.remove("active"));
         e.currentTarget.classList.add("active");
 
-        if (e.currentTarget.id != "todos") {
-            const productoCategoria = productos.find(producto => producto.categoria.id === e.currentTarget.id);
-            tituloPrincipal.innerText = productoCategoria.categoria.nombre;
-            const productosBoton = productos.filter(producto => producto.categoria.id === e.currentTarget.id);
-            cargarProductos(productosBoton);
+        // Filtrar los productos según la categoría seleccionada
+        if (e.currentTarget.id !== "todos") {
+            const productosFiltrados = window.productos.filter(producto => producto.categoria.id === e.currentTarget.id);
+            tituloPrincipal.innerText = productosFiltrados[0]?.categoria.nombre || "Categoría";
+            cargarProductos(productosFiltrados);
         } else {
+            // Mostrar todos los productos si se selecciona "Todos"
             tituloPrincipal.innerText = "Todos los productos";
-            cargarProductos(productos);
+            cargarProductos(window.productos);
         }
-
-    })
+    });
 });
 
 function actualizarBotonesAgregar() {
@@ -256,21 +125,26 @@ if (productosEnCarritoLS) {
 }
 
 
-function agregarAlCarrito(e){
-
+function agregarAlCarrito(e) {
     const idBoton = e.currentTarget.id;
-    const productoAgregado = productos.find(producto => producto.id === idBoton);
 
-    if(productosEnCarrito.some(producto => producto.id === idBoton)) {
+    // Buscar el producto en la variable global `window.productos`
+    const productoAgregado = window.productos.find(producto => producto.id === idBoton);
+
+    if (productosEnCarrito.some(producto => producto.id === idBoton)) {
+        // Si el producto ya está en el carrito, aumentar su cantidad
         const index = productosEnCarrito.findIndex(producto => producto.id === idBoton);
         productosEnCarrito[index].cantidad++;
     } else {
+        // Si el producto no está en el carrito, agregarlo con cantidad inicial de 1
         productoAgregado.cantidad = 1;
         productosEnCarrito.push(productoAgregado);
     }
 
+    // Actualizar el contador del carrito
     actualizarNumerito();
 
+    // Guardar el carrito actualizado en localStorage
     localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
 }
 

@@ -2,13 +2,23 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Rubik', sans-serif;
+    font-family: "Kanit", sans-serif;
+}
+
+.kanit-light {
+    font-family: "Kanit", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+a {
+    text-decoration: none;
 }
 
 .wrapper{
     display: grid;
     grid-template-columns: 1fr 4fr;
-    background-color: #1B264F;
+    background-color: #26413C;
 }
 
 aside{
@@ -21,6 +31,15 @@ aside{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.buscador-input {
+    padding: .5rem;
+    border: 1px solid #ccc;
+    border-radius: .5rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    max-width: 320px;
 }
 
 .logo{
@@ -50,7 +69,7 @@ aside{
 
 .boton-menu.active {
     background-color: #F5F3F5;
-    color: rebeccapurple;
+    color: #03120E;
     
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
@@ -62,19 +81,19 @@ aside{
 }
 
 .numerito{
-    background-color: #F5F3F5;
-    color: rebeccapurple;
+    background-color: #8AB0AB;
+    color: #03120E;
     padding: .15rem .25rem;
     border-radius: .25rem;
 }
 
 .boton-carrito.active .numerito{
-    background-color: rebeccapurple;
+    background-color: #03120E;
     color: #F5F3F5;
 }
 
 .texto-footer{
-    color: gray;
+    color: #8AB0AB;
     font-size: .85rem;
 
 }
@@ -97,15 +116,23 @@ main{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
+    
 }
 
+
+
 .producto-imagen{
-    max-width: 100%;
+    max-width: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
     border-radius: 1rem;
+    display: block;        
+    margin: 0 auto;        
 }
 
 .producto-detalles{
-    background-color: #576CA8;
+    background-color: #3E505B;
     color: black;
     padding: .5rem;
     border-radius: 1rem;
@@ -117,24 +144,31 @@ main{
 }
 
 .producto-titulo{
-    font-size: 1rem;
+    font-size: .90rem;
+    color: #F5F3F5;
+}
+
+.producto-precio{
+    margin-top: 1rem;
+    color: #F5F3F5;
 }
 
 .producto-agregar{
+    margin-top: 1rem;
     border: 0;
-    background-color: #F5F3F5;
-    color: rebeccapurple;
+    background-color: #1A1D1A;
+    color: #F5F3F5;
     padding: .4rem;
     text-transform: uppercase;
     border-radius: 2rem;
     cursor: pointer;
-    border: 2px solid white;
+    border: 2px solid #F5F3F5;
     transition: background-color .2s, color .2s;
 }
 
 .producto-agregar:hover{
-    background-color: aliceblue;
-    color: black;
+    background-color: #F5F3F5;
+    color: #03120E;
 }
 
 /* Carrito Vacio */
@@ -145,7 +179,7 @@ main{
 }
 
 .carrito-vacio, .carrito-comprado{
-    color: rebeccapurple;
+    color: #03120E;
 }
 
 .carrito-productos{
@@ -158,8 +192,8 @@ main{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: gray;
-    color: rebeccapurple;
+    background-color: #1A1D1A;
+    color: #F5F3F5;
     padding: .5rem;
     padding-right: 1.5rem;
     border-radius: 1rem;
@@ -174,12 +208,16 @@ main{
     font-size: .75rem;
 }
 
-.carrito-producto-eliminar{
-    border: 0;
-    background-color: transparent;
-    color: red;
+.carrito-producto-eliminar img {
+    opacity: 0.7;
+    transition: opacity 0.2s;
     cursor: pointer;
 }
+
+.carrito-producto-eliminar:hover img {
+    opacity: 1;
+}
+
 
 .carrito-acciones{
     display: flex;
@@ -189,10 +227,10 @@ main{
 
 .carrito-acciones-vaciar{
     border: 0;
-    background-color: gray;
+    background-color: #8AB0AB;
     padding: 1rem;
     border-radius: 1rem;
-    color: rebeccapurple;
+    color: #03120E;
     text-transform: uppercase;
     cursor: pointer;
 }
@@ -203,9 +241,9 @@ main{
 
 .carrito-acciones-total{
     display: flex;
-    background-color: gray;
+    background-color: #26413C;
     padding: 1rem;
-    color: rebeccapurple;
+    color: #F5F3F5;
     text-transform: uppercase;
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
@@ -214,14 +252,18 @@ main{
 
 .carrito-acciones-comprar{
     border: 0;
-    background-color: rebeccapurple;
+    background-color: #8AB0AB;
     padding: 1rem;
-    border-radius: 1rem;
-    color: gray;
+    color: #03120E;
     text-transform: uppercase;
     cursor: pointer;
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
+}
+
+.carrito-acciones-comprar:hover, .carrito-acciones-vaciar:hover{
+    background-color: #3E505B;
+    color: #F5F3F5;
 }
 
 .header-mobile{
