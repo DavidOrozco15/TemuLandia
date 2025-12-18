@@ -135,10 +135,14 @@ function agregarAlCarrito(e) {
         // Si el producto ya está en el carrito, aumentar su cantidad
         const index = productosEnCarrito.findIndex(producto => producto.id === idBoton);
         productosEnCarrito[index].cantidad++;
+        alert(`${productoAgregado.titulo}\nCantidad actualizada en el carrito: ${productosEnCarrito[index].cantidad}`);
+
+        
     } else {
         // Si el producto no está en el carrito, agregarlo con cantidad inicial de 1
         productoAgregado.cantidad = 1;
         productosEnCarrito.push(productoAgregado);
+        alert(`✅ Producto agregado al carrito:\n${productoAgregado.titulo}\nPrecio: $${productoAgregado.precio}`);
     }
 
     // Actualizar el contador del carrito
