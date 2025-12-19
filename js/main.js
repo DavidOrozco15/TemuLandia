@@ -72,7 +72,7 @@ function cargarProductos(productosElegidos) {
         div.innerHTML = `
             <img class="producto-imagen" src="${producto.imagen}" alt="${producto.titulo}">
             <div class="producto-detalles">
-                <h3 class="producto-titulo">${producto.titulo}</h3>
+                <h3 class="producto-titulo">${producto.titulo.slice(0, 40)}${producto.titulo.length > 10 ? '...' : ''}</h3>
                 <p class="producto-precio">$${producto.precio}</p>
                 <button class="producto-agregar icono-carrito" id="${producto.id}">
                 <img src="./img/comprar.png" alt="Eliminar producto" width="20" height="20">
