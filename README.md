@@ -168,31 +168,13 @@ TemuLandia/
 
 ---
 
-## 🏗️ Desarrollo y Mejoras Futuras
-
-### Funcionalidades Planeadas
-- [ ] Ordenamiento por precio (ascendente/descendente)
-- [ ] Paginación para grandes catálogos
-- [ ] Sistema de usuarios y cuentas
-- [ ] Historial de compras
-- [ ] Calificaciones y reseñas de productos
-- [ ] Lista de deseos/favoritos
-
-### Optimizaciones Técnicas
-- [ ] Implementación de Service Workers
-- [ ] Cache de imágenes para mejor rendimiento
-- [ ] Lazy loading de productos
-- [ ] Bundle y minificación de archivos
-
----
-
 ## 👨‍💻 Autor
 
 **Proyecto desarrollado como parte del aprendizaje de JavaScript**
 
-- **Nombre**: [Tu Nombre]
-- **Curso**: Desarrollo Web con JavaScript
-- **Institución**: [Nombre de la institución]
+- **Nombre**: David Gamboa Orozco
+- **Curso**: JavaScript
+- **Institución**: CampusLands
 - **Año**: 2025
 
 ---
@@ -202,13 +184,3 @@ TemuLandia/
 Este proyecto está desarrollado con fines educativos.
 
 ---
-
-## 🙏 Agradecimientos
-
-- [FakeStore API](https://fakestoreapi.com) por proporcionar la API de productos
-- Google Fonts por la tipografía Kanit
-- Comunidad de desarrolladores por los recursos y tutoriales
-
----
-
-**¡Gracias por usar TemuLandia! 🛍️✨**
