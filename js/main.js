@@ -41,6 +41,9 @@ if (buscador) {
     buscador.addEventListener("input", filtrarProductos);
 }
 
+const ordenSelect = document.querySelector("#orden");
+if (ordenSelect) ordenSelect.addEventListener("change", filtrarProductos);
+
 function filtrarProductos() {
     const textoBusqueda = buscador.value.toLowerCase().trim();
     let productosFiltrados = window.productos;
@@ -58,7 +61,27 @@ function filtrarProductos() {
         );
     }
 
+    // Aplicar orden si se seleccionó uno
+    const criterio = ordenSelect ? ordenSelect.value : "default";
+    productosFiltrados = ordenarProductos(productosFiltrados, criterio);
+
     cargarProductos(productosFiltrados);
+}
+
+function ordenarProductos(lista, criterio) {
+    const copia = [...lista];
+    switch (criterio) {
+        case "price-asc":
+            return copia.sort((a, b) => a.precio - b.precio);
+        case "price-desc":
+            return copia.sort((a, b) => b.precio - a.precio);
+        case "title-asc":
+            return copia.sort((a, b) => a.titulo.localeCompare(b.titulo));
+        case "title-desc":
+            return copia.sort((a, b) => b.titulo.localeCompare(a.titulo));
+        default:
+            return copia; // sin ordenar
+    }
 }
 
 function cargarProductos(productosElegidos) {

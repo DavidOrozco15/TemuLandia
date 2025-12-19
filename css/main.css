@@ -42,10 +42,24 @@ aside{
     max-width: 320px;
 }
 
+/* Estilos para el control de ordenamiento */
+.orden-select {
+    padding: .45rem .6rem;
+    border: 1px solid #ccc;
+    border-radius: .5rem;
+    background-color: #F5F3F5;
+    color: #03120E;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    width: 100%;
+    max-width: 320px;
+    font-weight: 600;
+}
+
 .logo{
     font-weight: 400;
     font-size: 1,3rem;
-}
+} 
 
 .menu{
     display: flex;
@@ -373,6 +387,13 @@ main{
     .carrito-acciones{
         flex-wrap: wrap;
         row-gap: 1rem;
+    }
+
+    /* Orden select en móvil: que ocupe todo el ancho del sidebar */
+    .orden-select {
+        width: 100%;
+        max-width: 100%;
+        font-size: .95rem;
     }
 }
 

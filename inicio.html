@@ -27,6 +27,13 @@
             <nav>
                 <ul class="menu">
                     <input type="text" id="buscador" placeholder="Buscar productos..." class="buscador-input">
+                    <select id="orden" class="orden-select" aria-label="Ordenar productos">
+                        <option value="default">Ordenar</option>
+                        <option value="price-asc">Precio: menor → mayor</option>
+                        <option value="price-desc">Precio: mayor → menor</option>
+                        <option value="title-asc">Nombre: A → Z</option>
+                        <option value="title-desc">Nombre: Z → A</option>
+                    </select>
                     <li><button id="todos" class="boton-menu boton-categoria active">
                         <img src="./img/productos.png" alt="Productos width="20" height="20">
                         Todos los Productos</button></li>
