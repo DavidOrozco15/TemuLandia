@@ -5,7 +5,7 @@ async function obtenerProductos() {
         const productosAPI = await respuesta.json();
 
 
-        // Transformar los datos de la API para que coincidan con el formato esperado
+        
         const productosTransformados = productosAPI.map(producto => ({
             id: `producto-${producto.id}`,
             titulo: producto.title,
@@ -18,10 +18,10 @@ async function obtenerProductos() {
             precio: producto.price
         }));
 
-        // Cargar los productos en la página
+        
         cargarProductos(productosTransformados);
 
-        // Guardar los productos transformados en una variable global si es necesario
+        
         window.productos = productosTransformados;
 
     } catch (error) {
@@ -111,21 +111,21 @@ function cargarProductos(productosElegidos) {
 
     actualizarBotonesAgregar();
 }
-/*se puede boorar por si acaso*/
+
 
 botonesCategorias.forEach(boton => {
     boton.addEventListener("click", (e) => {
-        // Remover la clase "active" de todos los botones y agregarla al botón seleccionado
+        
         botonesCategorias.forEach(boton => boton.classList.remove("active"));
         e.currentTarget.classList.add("active");
 
-        // Filtrar los productos según la categoría seleccionada
+        
         if (e.currentTarget.id !== "todos") {
             const productosFiltrados = window.productos.filter(producto => producto.categoria.id === e.currentTarget.id);
             tituloPrincipal.innerText = productosFiltrados[0]?.categoria.nombre || "Categoría";
             cargarProductos(productosFiltrados);
         } else {
-            // Mostrar todos los productos si se selecciona "Todos"
+        
             tituloPrincipal.innerText = "Todos los productos";
             cargarProductos(window.productos);
         }
@@ -161,27 +161,27 @@ if (productosEnCarritoLS) {
 function agregarAlCarrito(e) {
     const idBoton = e.currentTarget.id;
 
-    // Buscar el producto en la variable global `window.productos`
+    
     const productoAgregado = window.productos.find(producto => producto.id === idBoton);
 
     if (productosEnCarrito.some(producto => producto.id === idBoton)) {
-        // Si el producto ya está en el carrito, aumentar su cantidad
+        
         const index = productosEnCarrito.findIndex(producto => producto.id === idBoton);
         productosEnCarrito[index].cantidad++;
         alert(`${productoAgregado.titulo}\nCantidad actualizada en el carrito: ${productosEnCarrito[index].cantidad}`);
 
         
     } else {
-        // Si el producto no está en el carrito, agregarlo con cantidad inicial de 1
+        
         productoAgregado.cantidad = 1;
         productosEnCarrito.push(productoAgregado);
         alert(`✅ Producto agregado al carrito:\n${productoAgregado.titulo}\nPrecio: $${productoAgregado.precio}`);
     }
 
-    // Actualizar el contador del carrito
+    
     actualizarNumerito();
 
-    // Guardar el carrito actualizado en localStorage
+    
     localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
 }
 

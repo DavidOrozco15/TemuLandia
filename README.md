@@ -130,14 +130,25 @@ TemuLandia/
 
 ---
 
+## 📸 Wireframe
+
+### Vista Principal de Productos
+![Vista Principal](./img/capturas/captura1.png)
+
+
+### Vista del Carrito de Compras
+![Carrito de Compras](./img/capturas/captura2.png)
+
+---
+
 ## 📸 Capturas de Pantalla
 
 ### Vista Principal de Productos
-![Vista Principal](img/placeholder-productos.png)
+![Vista Principal](./img/capturas/inicio.png)
 *Página principal mostrando todos los productos disponibles con filtros y búsqueda*
 
 ### Vista del Carrito de Compras
-![Carrito de Compras](img/placeholder-carrito.png)
+![Carrito de Compras](./img/capturas/carrito.png)
 *Carrito con productos agregados, total calculado y opciones de compra*
 
 ---
